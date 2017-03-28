@@ -17,8 +17,8 @@ Le dossier **javadoc** contient la documentation des packages **persons** et **p
 
 Au fil des questions suivantes, vous devez définir des cas de tests pour tester les méthodes de l’interface **IPerson**. 
 Ces cas de tests doivent couvrir efficacement le domaine d’entrée de ces méthodes. 
-Les cas de tests seront exécutées pour tester les différentes classes implémentant l’interface **IPerson**. 
-**La classe persons.Person est normale- ment sans erreurs, les classes du package people ont toutes au moins une erreur.**
+Les cas de tests seront exécutés pour tester les différentes classes implémentant l’interface **IPerson**. 
+**La classe persons.Person est normalement sans erreur, les classes du package people ont toutes au moins une erreur.**
 
 
 #### Question 1 
