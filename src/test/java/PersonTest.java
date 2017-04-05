@@ -1,3 +1,4 @@
+import org.junit.Before;
 import persons.Person;
 
 /**
@@ -5,7 +6,7 @@ import persons.Person;
  */
 public class PersonTest extends IPersonTest
 {
-    @Override
+    @Before
     public void setUp() throws Exception
     {
         this.person = new Person("Yoann", "Lathuiliere", 1995, 7, 15);
