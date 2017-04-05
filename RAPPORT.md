@@ -22,5 +22,5 @@
 |:---------------:|:--------:|:------------------------------------------------------------:|:------------------------:|
 |    Date null    | Invalide |       should_give_illegalArgumentException_on_null_date      | IllegalArgumentException |
 | Date inférieure | Invalide | should_give_illegalArgumentException_on_date_before_birthday | IllegalArgumentException |
-|    Date égale   |  Valide  |          should_give_zero_on_date_equal_to_birthday          |             0            |
-| Date supérieure |  Valide  |       should_give_at_least_zero_on_date_after_birthday       |            >=0           |
+|    Date égale   |  Valide  |           should_give_zero_on_date_same_as_birthday          |             0            |
+| Date supérieure |  Valide  |   should_give_twelve_on_date_twelve_years_after_birth_date   |            12            |
