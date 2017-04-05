@@ -32,8 +32,17 @@ public abstract class IPersonTest
 		assertThat(result).isFalse();
 	}
 
+    @Test
+    public void should_give_true_on_day_after_birthday() throws Exception
+    {
+        date = new GregorianCalendar(1994, 7, 16);
+
+        boolean result = person.wasBorn(date);
+
+        assertThat(result).isTrue();
+    }
+
 	@Test
-	@Ignore
 	public void should_give_true_on_date_equals_to_birthday() throws Exception
 	{
 		date = new GregorianCalendar(1994, 7, 15);
@@ -78,8 +87,7 @@ public abstract class IPersonTest
     }
 
     @Test
-	@Ignore
-    public void should_give_zero_on_date_same_as_birthday() throws Exception
+	public void should_give_zero_on_date_same_as_birthday() throws Exception
     {
         date = new GregorianCalendar(1994, 7, 15);
 
@@ -89,8 +97,7 @@ public abstract class IPersonTest
     }
 
     @Test
-	@Ignore
-    public void should_give_twelve_on_date_twelve_years_after_birth_date() throws Exception
+	public void should_give_twelve_on_date_twelve_years_after_birth_date() throws Exception
     {
         date = new GregorianCalendar(2006, 7, 15);
 
