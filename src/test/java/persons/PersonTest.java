@@ -1,5 +1,6 @@
+package persons;
+
 import org.junit.Before;
-import persons.Person;
 
 /**
  * Created by yannick on 05/04/17.
