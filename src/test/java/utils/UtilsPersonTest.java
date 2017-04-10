@@ -63,4 +63,31 @@ public class UtilsPersonTest
 
         assertThat(result).isTrue();
     }
+
+    @Test
+    public void should_return_false_for_persons_not_between_20_and_30()
+    {
+        int min_age = 20;
+        int max_age = 30;
+
+        List<IPerson> returnedList = utils.getPersonsInInterval(persons, min_age, max_age, new GregorianCalendar(2050, 5, 10));
+
+        boolean result = returnedList.contains(persons.get(1))
+                && returnedList.contains(persons.get(2));
+
+        assertThat(result).isFalse();
+    }
+
+    @Test
+    public void should_return_true_for_persons_with_age_equals_to_limits()
+    {
+        int min_age = 28;
+        int max_age = 37;
+
+        List<IPerson> returnedList = utils.getPersonsInInterval(persons, min_age, max_age, new GregorianCalendar());
+
+        boolean result = returnedList.contains(persons.get(0)) && returnedList.contains(persons.get(4));
+
+        assertThat(result).isTrue();
+    }
 }
