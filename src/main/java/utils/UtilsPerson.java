@@ -22,7 +22,7 @@ public class UtilsPerson {
         return persons.stream()
                 .filter(person -> {
                     int age = person.getAge(date);
-                    return age > min && age < max;
+                    return age >= min && age <= max;
                 })
                 .collect(toList());
     }
