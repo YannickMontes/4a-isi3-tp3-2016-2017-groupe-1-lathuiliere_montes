@@ -29,7 +29,7 @@ public class UtilsPerson {
 
     public int getAgeOfOldestPersonInList(ArrayList<IPerson> persons, final GregorianCalendar date)
     {
-        if(persons.size() == 0)
+        if(persons == null || persons.size() == 0)
         {
             return -1;
         }

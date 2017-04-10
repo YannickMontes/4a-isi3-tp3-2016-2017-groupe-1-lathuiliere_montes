@@ -100,6 +100,14 @@ public class UtilsPersonTest
     }
 
     @Test
+    public void should_return_minus_1_with_null_list()
+    {
+        int result = utils.getAgeOfOldestPersonInList(null, new GregorianCalendar());
+
+        assertThat(result).isEqualTo(-1);
+    }
+
+    @Test
     public void should_return_oldest_person_with_list()
     {
         int result = utils.getAgeOfOldestPersonInList(persons, new GregorianCalendar());
