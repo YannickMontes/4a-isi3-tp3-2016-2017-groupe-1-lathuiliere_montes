@@ -56,7 +56,7 @@ public class UtilsPersonTest
         int min_age = 20;
         int max_age = 30;
 
-        List<IPerson> returnedList = utils.getPersonsInInterval(persons, min_age, max_age, new GregorianCalendar());
+        List<IPerson> returnedList = utils.getPersonsInInterval(persons, min_age, max_age, new GregorianCalendar(2050, 5, 10));
 
         boolean result = returnedList.contains(persons.get(3))
                 && returnedList.contains(persons.get(4));
