@@ -1,5 +1,6 @@
 package utils;
 
+import persons.IPerson;
 import persons.Person;
 
 import java.util.ArrayList;
@@ -13,7 +14,7 @@ import static java.util.stream.Collectors.toList;
  * Created by yannick on 05/04/17.
  */
 public class UtilsPerson {
-    public List<Person> getPersonsInInterval(ArrayList<Person> persons, int min, int max, final GregorianCalendar date) throws IllegalArgumentException{
+    public List<IPerson> getPersonsInInterval(ArrayList<IPerson> persons, int min, int max, final GregorianCalendar date) throws IllegalArgumentException{
         if(min > max) {
             throw new IllegalArgumentException("Minimal age superior at maximal age");
         }
