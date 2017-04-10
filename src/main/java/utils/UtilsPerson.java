@@ -26,4 +26,24 @@ public class UtilsPerson {
                 })
                 .collect(toList());
     }
+
+    public int getAgeOfOldestPersonInList(ArrayList<IPerson> persons, final GregorianCalendar date)
+    {
+        if(persons.size() == 0)
+        {
+            return -1;
+        }
+
+        int maxAge = Integer.MIN_VALUE;
+
+        //TO OPTIM WITH STREAM
+
+        for(IPerson person : persons)
+        {
+            if(person.getAge(date) > maxAge)
+                maxAge = person.getAge(date);
+        }
+
+        return maxAge;
+    }
 }
