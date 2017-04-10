@@ -90,4 +90,20 @@ public class UtilsPersonTest
 
         assertThat(result).isTrue();
     }
+
+    @Test
+    public void should_return_minus_1_with_empty_list()
+    {
+        int result = utils.getAgeOfOldestPersonInList(new ArrayList<IPerson>(), new GregorianCalendar());
+
+        assertThat(result).isEqualTo(-1);
+    }
+
+    @Test
+    public void should_return_oldest_person_with_list()
+    {
+        int result = utils.getAgeOfOldestPersonInList(persons, new GregorianCalendar());
+
+        assertThat(result).isEqualTo(100);
+    }
 }
