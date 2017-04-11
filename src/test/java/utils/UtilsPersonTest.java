@@ -17,28 +17,39 @@ import java.util.List;
 public class UtilsPersonTest
 {
     private ArrayList<IPerson> persons;
+    private IPerson personUnder30;
+    private IPerson personAbove30;
+    private IPerson person30;
+    private IPerson person18;
+    private IPerson personMaxAge;
     private UtilsPerson utils;
+    private int maxAge;
+    private int errorCode;
 
     @Before
     public void setup()
     {
         utils = new UtilsPerson();
-        persons = new ArrayList<IPerson>();
-        IPerson person1 = Mockito.mock(Person.class);
-        Mockito.when(person1.getAge(Mockito.any(GregorianCalendar.class))).thenReturn(37);
-        IPerson person2 = Mockito.mock(Person.class);
-        Mockito.when(person2.getAge(Mockito.any(GregorianCalendar.class))).thenReturn(1);
-        IPerson person3 = Mockito.mock(Person.class);
-        Mockito.when(person3.getAge(Mockito.any(GregorianCalendar.class))).thenReturn(100);
-        IPerson person4 = Mockito.mock(Person.class);
-        Mockito.when(person4.getAge(Mockito.any(GregorianCalendar.class))).thenReturn(25);
-        IPerson person5 = Mockito.mock(Person.class);
-        Mockito.when(person5.getAge(Mockito.any(GregorianCalendar.class))).thenReturn(28);
-        persons.add(person1);
-        persons.add(person2);
-        persons.add(person3);
-        persons.add(person4);
-        persons.add(person5);
+        persons = new ArrayList();
+        maxAge = 100;
+        errorCode = -1;
+
+        personUnder30 = Mockito.mock(Person.class);
+        Mockito.when(personUnder30.getAge(Mockito.any(GregorianCalendar.class))).thenReturn(28);
+        personAbove30 = Mockito.mock(Person.class);
+        Mockito.when(personAbove30.getAge(Mockito.any(GregorianCalendar.class))).thenReturn(35);
+        person30 = Mockito.mock(Person.class);
+        Mockito.when(person30.getAge(Mockito.any(GregorianCalendar.class))).thenReturn(30);
+        person18 = Mockito.mock(Person.class);
+        Mockito.when(person18.getAge(Mockito.any(GregorianCalendar.class))).thenReturn(18);
+        personMaxAge = Mockito.mock(Person.class);
+        Mockito.when(personMaxAge.getAge(Mockito.any(GregorianCalendar.class))).thenReturn(maxAge);
+
+        persons.add(personUnder30);
+        persons.add(personAbove30);
+        persons.add(person30);
+        persons.add(person18);
+        persons.add(personMaxAge);
     }
 
     @Test(expected = IllegalArgumentException.class)
@@ -51,67 +62,59 @@ public class UtilsPersonTest
     }
 
     @Test
-    public void should_return_person_between_20_and_30()
+    public void should_give_person_between_20_and_30()
     {
         int min_age = 20;
         int max_age = 30;
-
-        List<IPerson> returnedList = utils.getPersonsInInterval(persons, min_age, max_age, new GregorianCalendar(2050, 5, 10));
-
-        boolean result = returnedList.contains(persons.get(3))
-                && returnedList.contains(persons.get(4));
-
-        assertThat(result).isTrue();
-    }
-
-    @Test
-    public void should_return_false_for_persons_not_between_20_and_30()
-    {
-        int min_age = 20;
-        int max_age = 30;
-
-        List<IPerson> returnedList = utils.getPersonsInInterval(persons, min_age, max_age, new GregorianCalendar(2050, 5, 10));
-
-        boolean result = returnedList.contains(persons.get(1))
-                && returnedList.contains(persons.get(2));
-
-        assertThat(result).isFalse();
-    }
-
-    @Test
-    public void should_return_true_for_persons_with_age_equals_to_limits()
-    {
-        int min_age = 28;
-        int max_age = 37;
 
         List<IPerson> returnedList = utils.getPersonsInInterval(persons, min_age, max_age, new GregorianCalendar());
 
-        boolean result = returnedList.contains(persons.get(0)) && returnedList.contains(persons.get(4));
-
-        assertThat(result).isTrue();
+        assertThat(returnedList).containsExactlyInAnyOrder(person30, personUnder30);
     }
 
     @Test
-    public void should_return_minus_1_with_empty_list()
+    public void should_give_false_for_persons_not_between_20_and_30()
+    {
+        int min_age = 20;
+        int max_age = 30;
+
+        List<IPerson> returnedList = utils.getPersonsInInterval(persons, min_age, max_age, new GregorianCalendar());
+
+        assertThat(returnedList).doesNotContain(personMaxAge, personAbove30, person18);
+    }
+
+    @Test
+    public void should_give_person30()
+    {
+        int min_age = 30;
+        int max_age = 30;
+
+        List<IPerson> returnedList = utils.getPersonsInInterval(persons, min_age, max_age, new GregorianCalendar());
+
+        assertThat(returnedList).containsExactly(person30);
+    }
+
+    @Test
+    public void should_give_error_code_with_empty_list()
     {
         int result = utils.getAgeOfOldestPersonInList(new ArrayList<IPerson>(), new GregorianCalendar());
 
-        assertThat(result).isEqualTo(-1);
+        assertThat(result).isEqualTo(errorCode);
     }
 
     @Test
-    public void should_return_minus_1_with_null_list()
+    public void should_give_error_code_with_null_list()
     {
         int result = utils.getAgeOfOldestPersonInList(null, new GregorianCalendar());
 
-        assertThat(result).isEqualTo(-1);
+        assertThat(result).isEqualTo(errorCode);
     }
 
     @Test
-    public void should_return_oldest_person_with_list()
+    public void should_give_oldest_person_with_list()
     {
         int result = utils.getAgeOfOldestPersonInList(persons, new GregorianCalendar());
 
-        assertThat(result).isEqualTo(100);
+        assertThat(result).isEqualTo(maxAge);
     }
 }
