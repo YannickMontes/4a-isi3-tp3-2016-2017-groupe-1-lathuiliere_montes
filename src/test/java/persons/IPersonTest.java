@@ -2,11 +2,7 @@ package persons;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-import org.junit.After;
-import org.junit.Before;
-import org.junit.Ignore;
 import org.junit.Test;
-import persons.IPerson;
 import java.util.GregorianCalendar;
 
 public abstract class IPersonTest
