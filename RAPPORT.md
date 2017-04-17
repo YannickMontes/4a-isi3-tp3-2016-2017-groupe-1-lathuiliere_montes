@@ -4,9 +4,21 @@
 
 # Rapport TP3
 
-### Question 1
+### Question 1 : réalisation d'une analyse partitionnelle
 
-**wasBorn method:**
+Ces deux méthodes partagent les mêmes classes d'équivalences. On peut donc définir les 4 classes suivantes :
+
+|            Classe           | Validité |
+|:---------------------------:|:--------:|
+|          Date nulle         | Invalide |
+| Date strictement inférieure | Invalide |
+|          Date égale         |  Valide  |
+| Date strictement supérieure |  Valide  |
+
+On va alors créer 4 tests unitaires pour chaque méthode, afin de tester toutes nos classes d'équivalences.
+Voici un tableau décrivant les différents tests ainsi que les résultats attendus.
+
+**Méthode wasBorn:**
 
 |      Classe     | Validité |                 Représentant                | Oracle |
 |:---------------:|:--------:|:-------------------------------------------:|:------:|
@@ -16,7 +28,7 @@
 | Date supérieure |  Valide  |   should_give_false_on_date_after_birthday  |  true  |
 
 
-**getAge method:**
+**Méthode getAge:**
 
 |      Classe     | Validité |                         Représentant                         |          Oracle          |
 |:---------------:|:--------:|:------------------------------------------------------------:|:------------------------:|
