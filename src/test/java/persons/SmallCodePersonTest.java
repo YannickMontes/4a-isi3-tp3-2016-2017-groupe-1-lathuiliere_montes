@@ -6,7 +6,7 @@ import people.YetAnotherPerson;
 /**
  * Created by yannick on 11/04/17.
  */
-public class SmallCodePerson extends IPersonTest
+public class SmallCodePersonTest extends IPersonTest
 {
     @Before
     public void setUp() throws Exception

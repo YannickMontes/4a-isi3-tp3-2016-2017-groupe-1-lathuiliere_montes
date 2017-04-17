@@ -10,6 +10,6 @@ public class PersonTest extends IPersonTest
     @Before
     public void setUp() throws Exception
     {
-        this.person = new Person("Yoann", "Lathuiliere", 1994, 7, 15);
+        this.person = new persons.Person("Yoann", "Lathuiliere", 1994, 7, 15);
     }
 }
