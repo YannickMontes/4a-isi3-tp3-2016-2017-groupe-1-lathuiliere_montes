@@ -38,6 +38,12 @@ Voici un tableau décrivant les différents tests ainsi que les résultats atten
 | Date supérieure |  Valide  |   should_give_twelve_on_date_twelve_years_after_birth_date   |            12            |
 
 
+### Question 2 : implémentation des tests
+
+Une fois tous les tests écrits, l'exécution nous a permis de nous assurer du bon fonctionnement de la classe Person.
+![](/images/question2.png?raw=true)
+
+
 ### Question 3
 
 ![](/images/IPersonTest.png?raw=true)
