@@ -51,3 +51,31 @@ Cette classe contient tous les tests écrits précédemment et si besoin, il est
 Pour tester toutes les classes, il faudra alors créer un fichier par classe et seulement changer la fonction setup() pour que les tests s'exécutent.
 
 ![](/images/IPersonTest.png?raw=true)
+
+
+### Question 4 : tests pour toutes les classes implémentant IPerson
+
+Pour tester le fonctionnement de notre nouvelle architecture, nous avons créé un fichier pour chaque classe implémentant IPerson, avec la fonction setup() qui change.
+Après une première exécution, tous les tests passent, alors qu'au moins un par classe est censé échouer. Ce résultat indique que notre couverte n'est pas optimale.
+Nous avons alors ajouté 6 tests supplémentaires pour la classe d'équivalence "Date strictement inférieure".
+
+**Méthode wasBorn:**
+
+|            Classe           | Validité | Représentant                               | Oracle |
+|:---------------------------:|:--------:|--------------------------------------------|--------|
+| Date strictement inférieure | Invalide | should_give_false_on_year_before_birthday  | False  |
+| Date strictement inférieure | Invalide | should_give_false_on_month_before_birthday | False  |
+| Date strictement inférieure | Invalide | should_give_false_on_day_before_birthday   | False  |
+
+**Méthode getAge:**
+
+|            Classe           | Validité | Représentant                                                  | Oracle                   |
+|:---------------------------:|:--------:|---------------------------------------------------------------|--------------------------|
+| Date strictement inférieure | Invalide | should_give_illegalArgumentException_on_day_before_birthday   | IllegalArgumentException |
+| Date strictement inférieure | Invalide | should_give_illegalArgumentException_on_month_before_birthday | IllegalArgumentException |
+| Date strictement inférieure | Invalide | should_give_illegalArgumentException_on_year_before_birthday  | IllegalArgumentException |
+
+Après une nouvelle exécution, certains de nos tests échouent.
+D'après les consignes, cela indique que nos tests couvrent le code de manière optimale et qu'il y a des bugs dans l'implémentation des classes.
+
+![](/images/question4.png?raw=true)
