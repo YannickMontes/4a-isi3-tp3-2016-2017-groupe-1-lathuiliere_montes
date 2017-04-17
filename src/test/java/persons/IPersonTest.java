@@ -29,6 +29,36 @@ public abstract class IPersonTest
 	}
 
     @Test
+    public void should_give_false_on_day_before_birthday() throws Exception
+    {
+        date = new GregorianCalendar(1994, 7, 14);
+
+        boolean result = person.wasBorn(date);
+
+        assertThat(result).isFalse();
+    }
+
+    @Test
+    public void should_give_false_on_month_before_birthday() throws Exception
+    {
+        date = new GregorianCalendar(1994, 6, 15);
+
+        boolean result = person.wasBorn(date);
+
+        assertThat(result).isFalse();
+    }
+
+    @Test
+    public void should_give_false_on_year_before_birthday() throws Exception
+    {
+        date = new GregorianCalendar(1993, 7, 15);
+
+        boolean result = person.wasBorn(date);
+
+        assertThat(result).isFalse();
+    }
+
+    @Test
     public void should_give_true_on_day_after_birthday() throws Exception
     {
         date = new GregorianCalendar(1994, 7, 16);
@@ -78,6 +108,30 @@ public abstract class IPersonTest
     public void should_give_illegalArgumentException_on_date_before_birthday() throws Exception
     {
         date = new GregorianCalendar(1990, 1, 1);
+
+        person.getAge(date);
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void should_give_illegalArgumentException_on_day_before_birthday() throws Exception
+    {
+        date = new GregorianCalendar(1994, 7, 14);
+
+        person.getAge(date);
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void should_give_illegalArgumentException_on_month_before_birthday() throws Exception
+    {
+        date = new GregorianCalendar(1994, 6, 15);
+
+        person.getAge(date);
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void should_give_illegalArgumentException_on_year_before_birthday() throws Exception
+    {
+        date = new GregorianCalendar(1994, 7, 15);
 
         person.getAge(date);
     }
