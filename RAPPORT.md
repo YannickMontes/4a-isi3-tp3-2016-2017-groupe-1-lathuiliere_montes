@@ -44,11 +44,10 @@ Une fois tous les tests écrits, l'exécution nous a permis de nous assurer du b
 ![](/images/question2.png?raw=true)
 
 
-### Question 3
+### Question 3 : architecture abstraite
+
+Pour faire passer les tests aux différentes classes du package people qui implémentent l’interface IPerson, sans avoir besoin de réécrire le code à chaque fois, il faut créer une classe abstraite [IPersonTest] (src/test/java/persons/IPersonTest.java).
+Cette classe contient tous les tests écrits précédemment et si besoin, il est possible d'"overide" ces méthodes pour faire des tests plus spécifiques.
+Pour tester toutes les classes, il faudra alors créer un fichier par classe et seulement changer la fonction setup() pour que les tests s'exécutent.
 
 ![](/images/IPersonTest.png?raw=true)
-
-La solution est de mettre tout les tests que nous venons de créer dans une classe IPersonTest, qui est abstraite. 
-Cette dernière possède tout les tests fait précédement, pouvant être overidés sur ils sont plus spécifique pour un certain cas.
-
-
