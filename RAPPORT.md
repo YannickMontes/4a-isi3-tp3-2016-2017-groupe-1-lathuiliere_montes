@@ -79,3 +79,13 @@ Après une nouvelle exécution, certains de nos tests échouent.
 D'après les consignes, cela indique que nos tests couvrent le code de manière optimale et qu'il y a des bugs dans l'implémentation des classes.
 
 ![](/images/question4.png?raw=true)
+
+
+### Question 5 : patron de conception "Adapteur"
+
+Pour faite passer les tests précédents à la classe Personne du package people (qui n’implémente pas l’interface IPerson), il faut utiliser le patron de conception "Adapteur".
+On va alors créer une classe [PersonneAdapter] (src/test/java/adapter/PersonneAdapter.java), qui étend de people.Personne et qui implémene IPerson.
+On va ensuite écrire la méthode wasBorn pour respecter l'implémentation d'IPerson.
+
+Enfin, on va créer une classe [PersonneTest] (src/test/java/persons/PersonneAdapterTest.java) pour faire passer les tests sur la classe Personne.
+Comme spécifié dans les consignes, une partie de nos tests échouent.
