@@ -10,6 +10,6 @@ public class PersonneTest extends IPersonTest
     @Before
     public void setUp() throws Exception
     {
-        this.person = new adapter.PersonneAdapter("Yoann", "Lathuiliere", 1994, 7, 15);
+        this.person = new adapter.PersonneAdapter("Yoann", "Lathuiliere", 15, 7, 1994);
     }
 }

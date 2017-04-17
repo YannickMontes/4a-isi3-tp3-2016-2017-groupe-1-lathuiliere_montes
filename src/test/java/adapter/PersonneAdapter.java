@@ -10,11 +10,12 @@ import static java.util.stream.Collectors.toList;
 
 public class PersonneAdapter extends people.Personne implements IPerson {
 
-    public PersonneAdapter(String lastname, String firstname, int year, int month, int day) {
-        super(lastname, firstname, year, month, day); // Call to people.Personne constructor
+    public PersonneAdapter(String lastname, String firstname, int day, int month, int year) {
+        super(lastname, firstname, day, month, year); // Call to people.Personne constructor
     }
 
     public boolean wasBorn(GregorianCalendar date) {
-        return date.before(super.dateNaissance) || date.equals(super.dateNaissance);
+
+        return date.after(super.dateNaissance) || date.equals(super.dateNaissance);
     }
 }
