@@ -43,7 +43,7 @@ public abstract class IPersonTest
     public void should_give_false_on_year_before_birthday() throws Exception
     {
         GregorianCalendar date = new GregorianCalendar(birthday.get(birthday.YEAR)-1, birthday.get(birthday.MONTH), birthday.get(birthday.DAY_OF_MONTH) );
-        
+
         boolean result = person.wasBorn(date);
 
         assertThat(result).isFalse();

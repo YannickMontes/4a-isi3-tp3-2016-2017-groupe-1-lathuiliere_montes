@@ -4,6 +4,10 @@ import static org.assertj.core.api.Assertions.assertThat;
 import org.junit.Before;
 import org.junit.Test;
 import org.mockito.Mockito;
+import static org.mockito.Mockito.atLeastOnce;
+import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.never;
+import static org.mockito.Mockito.anyObject;
 import persons.IPerson;
 import persons.Person;
 
@@ -70,6 +74,8 @@ public class UtilsPersonTest
         List<IPerson> returnedList = utils.getPersonsInInterval(persons, min_age, max_age, new GregorianCalendar());
 
         assertThat(returnedList).containsExactlyInAnyOrder(person30, personUnder30);
+
+        checkFunctionsUsed();
     }
 
     @Test
@@ -81,6 +87,8 @@ public class UtilsPersonTest
         List<IPerson> returnedList = utils.getPersonsInInterval(persons, min_age, max_age, new GregorianCalendar());
 
         assertThat(returnedList).doesNotContain(personMaxAge, personAbove30, person18);
+
+        checkFunctionsUsed();
     }
 
     @Test
@@ -92,6 +100,8 @@ public class UtilsPersonTest
         List<IPerson> returnedList = utils.getPersonsInInterval(persons, min_age, max_age, new GregorianCalendar());
 
         assertThat(returnedList).containsExactly(person30);
+
+        checkFunctionsUsed();
     }
 
     @Test
@@ -116,5 +126,17 @@ public class UtilsPersonTest
         int result = utils.getAgeOfOldestPersonInList(persons, new GregorianCalendar());
 
         assertThat(result).isEqualTo(maxAge);
+
+        checkFunctionsUsed();
+    }
+
+    private void checkFunctionsUsed()
+    {
+        for(IPerson person : persons)
+        {
+            verify(person, atLeastOnce()).getAge(anyObject());
+            verify(person, never()).getFirstName();
+            verify(person, never()).getName();
+        }
     }
 }
