@@ -37,12 +37,14 @@ Voici un tableau décrivant les différents tests ainsi que les résultats atten
 |    Date égale   |  Valide  |           should_give_zero_on_date_same_as_birthday          |             0            |
 | Date supérieure |  Valide  |   should_give_twelve_on_date_twelve_years_after_birth_date   |            12            |
 
+<br>
 
 ### Question 2 : implémentation des tests
 
 Une fois tous les tests écrits, l'exécution nous a permis de nous assurer du bon fonctionnement de la classe Person.
 ![](/images/question2.png?raw=true)
 
+<br>
 
 ### Question 3 : architecture abstraite
 
@@ -52,6 +54,7 @@ Pour tester toutes les classes, il faudra alors créer un fichier par classe et 
 
 ![](/images/IPersonTest.png?raw=true)
 
+<br>
 
 ### Question 4 : tests pour toutes les classes implémentant IPerson
 
@@ -80,6 +83,7 @@ D'après les consignes, cela indique que nos tests couvrent le code de manière 
 
 ![](/images/question4.png?raw=true)
 
+<br>
 
 ### Question 5 : patron de conception "Adapteur"
 
@@ -91,6 +95,7 @@ Enfin, on va créer une classe [PersonneTest](src/test/java/persons/PersonneAdap
 Comme spécifié dans les consignes, une partie de nos tests échouent.
 
 
+<br>
 
 ### Question 6 & 7 : classe OutilsPerson
 
@@ -132,7 +137,7 @@ Les deux méthodes utilisent l'API stream présenté lors du premier TP.
     }
 ``````
 
-
+<br>
 
 ### Question 8 : tests avec Mockito
 
@@ -147,11 +152,13 @@ Mockito permet ensuite de définir la valeur de retour des méthodes de la class
     Mockito.when(personAbove30.getAge(Mockito.any(GregorianCalendar.class))).thenReturn(35); // simulation du comportement de la méthode getAge()
 `````` 
 
+<br>
 
 ### Question 9 : TODO
 
 TODO
 
+<br>
 
 ### Question 10 : Vérification d'appel de fonction
 
