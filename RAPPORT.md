@@ -102,7 +102,7 @@ Comme spécifié dans les consignes, une partie de nos tests échouent.
 Conformément aux consignes, nous avons créé la classe [UtilsPerson](src/main/java/utils/UtilsPerson.java) et nous avons implémenté les deux méthodes demandées : getPersonsInInterval et getAgeOfOldestPersonInList.
 Les deux méthodes utilisent l'API stream présenté lors du premier TP.
 
-``````
+```java
     public List<IPerson> getPersonsInInterval(ArrayList<IPerson> persons, int min, int max, final GregorianCalendar date) throws IllegalArgumentException{
         if(min > max) {
             throw new IllegalArgumentException("Minimal age superior at maximal age");
@@ -135,7 +135,7 @@ Les deux méthodes utilisent l'API stream présenté lors du premier TP.
 
         return maxAge;
     }
-``````
+```
 
 <br>
 
@@ -147,10 +147,10 @@ Par exemple, au lieu de créer des objets de type Person, on crée des objets de
 Mockito permet ensuite de définir la valeur de retour des méthodes de la classe Person, pour avoir un comportement sûr dans notre environnement de test.
 
 *Exemple d'objet de type Mock*
-``````
+```java
     personAbove30 = Mockito.mock(Person.class); // création d'un objet de type Mock, suivant la classe Person
     Mockito.when(personAbove30.getAge(Mockito.any(GregorianCalendar.class))).thenReturn(35); // simulation du comportement de la méthode getAge()
-`````` 
+``` 
 
 <br>
 
@@ -170,12 +170,12 @@ Néanmoins, nous ne pouvons pas obtenir la couverture de code pour toutes les au
 
 Pour vérifier que la méthode de la question 7 calcule le plus grand âge de façon " anonyme " et en utilisant au moins une fois la méthode getAge, on va utiliser la fonction Mockito verify().
 On peut ainsi savoir si la méthode getAge est appelée au moins une fois en utilisant atLeast(1).
-`````
+```java
     verify(person, atLeastOnce()).getAge(anyObject());
-`````
+```
 
 Pour vérifier que les méthodes getName() et getFirstName() ne sont jamais appelés, on va utiliser la fonction verify() avec comme paramètre : never().
-`````
+```java
     verify(person, never()).getFirstName();
     verify(person, never()).getName();
-`````
+```
