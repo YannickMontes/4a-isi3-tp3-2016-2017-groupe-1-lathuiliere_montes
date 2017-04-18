@@ -156,7 +156,13 @@ Mockito permet ensuite de définir la valeur de retour des méthodes de la class
 
 ### Question 9 : TODO
 
-TODO
+Nous utilisons IntelliJ, proposant une couverture de test intégrée a l'IDE. 
+Après avoir fait passer le test coverage, on obtient le résultat suivant: 
+
+![](/images/question9.png?raw=true)
+
+Pour le code que nous avons crée dans la classe UtilsPerson, le test est codé à 100%.
+Néanmoins, nous ne pouvons pas obtenir la couverture de code pour toutes les autres classes, car c'est du code pré-compilé dans des .jar. 
 
 <br>
 
