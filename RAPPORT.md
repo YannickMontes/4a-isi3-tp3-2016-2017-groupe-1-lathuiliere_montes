@@ -134,3 +134,17 @@ Les deux méthodes utilisent l'API stream présenté lors du premier TP.
 
 
 
+### Question 8 : tests avec Mockito
+
+Pour tester ces deux méthodes, nous avons utilisé des objets mock, pour éviter les erreurs liées aux autres méthodes (calcul de l'âge par exemple).
+Nous avons écrit ces tests dans la classe [UtilsPersonTest] (src/test/java/utils/UtilsPersonTest.java).
+Par exemple, au lieu de créer des objets de type Person, on crée des objets de type Mock, suivant la classe Person.
+Mockito permet ensuite de définir la valeur de retour des méthodes de la classe Person, pour avoir un comportement sûr dans notre environnement de test.
+
+*Exemple d'objet de type Mock*
+``````
+    personAbove30 = Mockito.mock(Person.class); // création d'un objet de type Mock, suivant la classe Person
+    Mockito.when(personAbove30.getAge(Mockito.any(GregorianCalendar.class))).thenReturn(35); // simulation du comportement de la méthode getAge()
+`````
+
+
