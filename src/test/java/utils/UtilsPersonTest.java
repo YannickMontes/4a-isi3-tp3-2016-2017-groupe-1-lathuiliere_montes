@@ -40,12 +40,16 @@ public class UtilsPersonTest
 
         personUnder30 = Mockito.mock(Person.class);
         Mockito.when(personUnder30.getAge(Mockito.any(GregorianCalendar.class))).thenReturn(28);
+
         personAbove30 = Mockito.mock(Person.class);
         Mockito.when(personAbove30.getAge(Mockito.any(GregorianCalendar.class))).thenReturn(35);
+
         person30 = Mockito.mock(Person.class);
         Mockito.when(person30.getAge(Mockito.any(GregorianCalendar.class))).thenReturn(30);
+
         person18 = Mockito.mock(Person.class);
         Mockito.when(person18.getAge(Mockito.any(GregorianCalendar.class))).thenReturn(18);
+
         personMaxAge = Mockito.mock(Person.class);
         Mockito.when(personMaxAge.getAge(Mockito.any(GregorianCalendar.class))).thenReturn(maxAge);
 
