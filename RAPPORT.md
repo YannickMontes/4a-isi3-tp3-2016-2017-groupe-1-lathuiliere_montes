@@ -89,3 +89,48 @@ On va ensuite écrire la méthode wasBorn pour respecter l'implémentation d'IPe
 
 Enfin, on va créer une classe [PersonneTest] (src/test/java/persons/PersonneAdapterTest.java) pour faire passer les tests sur la classe Personne.
 Comme spécifié dans les consignes, une partie de nos tests échouent.
+
+
+
+### Question 6 & 7 : classe OutilsPerson
+
+Conformément aux consignes, nous avons créé la classe [UtilsPerson] (src/main/java/utils/UtilsPerson.java) et nous avons implémenté les deux méthodes demandées : getPersonsInInterval et getAgeOfOldestPersonInList.
+Les deux méthodes utilisent l'API stream présenté lors du premier TP.
+
+``````
+    public List<IPerson> getPersonsInInterval(ArrayList<IPerson> persons, int min, int max, final GregorianCalendar date) throws IllegalArgumentException{
+        if(min > max) {
+            throw new IllegalArgumentException("Minimal age superior at maximal age");
+        }
+
+        return persons.stream()
+                .filter(person -> {
+                    int age = person.getAge(date);
+                    return age >= min && age <= max;
+                })
+                .collect(toList());
+    }
+
+    public int getAgeOfOldestPersonInList(ArrayList<IPerson> persons, final GregorianCalendar date)
+    {
+        if(persons == null || persons.size() == 0)
+        {
+            return -1;
+        }
+
+        int maxAge = Integer.MIN_VALUE;
+
+        //TO OPTIM WITH STREAM
+
+        for(IPerson person : persons)
+        {
+            if(person.getAge(date) > maxAge)
+                maxAge = person.getAge(date);
+        }
+
+        return maxAge;
+    }
+``````
+
+
+
